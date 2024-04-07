@@ -9,21 +9,8 @@ const adminRoute = require("./router/admin-router");
 const connectDb = require("./utils/db");
 const errorMiddleware = require("./middlewares/error-middleware");
 
-const corsOptions = {
-  origin: (origin, callback) => {
-    const allowedOrigins = [
-      "http://localhost:5175",
-      "http://localhost:5173",
-      "http://localhost:5174",
-      "http://localhost:4173",
-    ];
-    const isAllowed = allowedOrigins.includes(origin);
-    callback(null, isAllowed ? origin : false);
-  },
-  methods: "GET, POST, PUT, DELETE, PATCH, HEAD",
-  credentials: true,
-};
-app.use(cors(corsOptions));
+
+app.use(cors());
 app.use(express.json());
 app.use("/api/auth", authRoute);
 app.use("/api/form", contactRoute);
@@ -36,7 +23,3 @@ connectDb().then(() => {
     console.log("server is running at port:", ` ${PORT}`);
   });
 });
-app.get('/',(req,res)=>{
-console.log("hello world")
-return res.json({mssg:"skfhkja"})
-})
