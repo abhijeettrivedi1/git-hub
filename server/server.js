@@ -36,3 +36,7 @@ connectDb().then(() => {
     console.log("server is running at port:", ` ${PORT}`);
   });
 });
+app.get('/',(req,res)=>{
+console.log("hello world")
+return res.json({mssg:"skfhkja"})
+})
