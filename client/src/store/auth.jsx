@@ -12,7 +12,7 @@ export const AuthProvider = ({ children }) => {
   const [services, setServices] = useState([]);
   const authorizationToken = `Bearer ${token}`;
 
-  const API = "http://localhost:5001";
+  const API = "https://git-hub-l7s6.onrender.com";
 
   const storeTokenInLS = (serverToken) => {
     setToken(serverToken);
